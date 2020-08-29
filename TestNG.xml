@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="tests" >
+    <test name="UI Тесты Olimp">
+        <parameter name="test-name" value="Test One"/>
+        <classes>
+            <class name="com.Re.RedesingTest" />
+        </classes>
+    </test>
+</suite>
