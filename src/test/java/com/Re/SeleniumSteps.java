@@ -55,9 +55,9 @@ public class SeleniumSteps extends DataBase {
        // DataBase.Screenshot(name);
 
 
-        //File srcFile = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
-        // FileHandler.copy(srcFile, new File("resources/screenshots/" + result.getName() + "-" + currentTime + ".jpg"));
-        //String screenshotBase64 = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BASE64);*/
+        /*File srcFile = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
+         FileHandler.copy(srcFile, new File("resources/screenshots/" + result.getName() + "-" + currentTime + ".jpg"));
+        String screenshotBase64 = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BASE64);*/
     }
 
 
