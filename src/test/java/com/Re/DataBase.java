@@ -1,5 +1,6 @@
 package com.Re;
 
+import groovy.util.logging.Log;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.apache.commons.io.FileUtils;
@@ -22,8 +23,8 @@ public class DataBase {
     }
 
     @Attachment(value = "Прикрепление", type = "application/json")
-    public static String LinkAllure(String path) throws IOException {
-        return path;
+    public static String LinkAllure(String text) throws IOException {
+        return text;
     }
 
     @Step("Screen")//Создание скриншота
@@ -33,7 +34,7 @@ public class DataBase {
         FileUtils.copyFile(file1, new File("C:/Users/User/IdeaProjects/Redesing/src/screenshot/" + name + ".PNG"));
         DataBase.LinkScreenAllure("C:/Users/User/IdeaProjects/Redesing/src/screenshot/" + name + ".PNG");
         DataBase.LinkScreenAllure("C:/Users/User/IdeaProjects/Redesing/src/screenshot/log.txt");
-        DataBase.LinkAllure("qw");
+
 
     }
 }

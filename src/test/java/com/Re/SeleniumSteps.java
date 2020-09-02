@@ -41,8 +41,7 @@ public class SeleniumSteps extends DataBase {
     @Step ("Метод кликает по линии")
     public  static void ClikLine() throws IOException
     {
-        //driver.get("https://redesing.olimp.dev/live/1");
-        //driver.get(baseUrl+"/line");
+
         driver.findElement(EndPoints.line).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
@@ -51,15 +50,7 @@ public class SeleniumSteps extends DataBase {
     @Step("Вход на главную страницу, проверка заголовка")
     public static void title(String URL) throws IOException, InterruptedException {
 
-
-       // DataBase.Screenshot(name);
-
-
-        /*File srcFile = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
-         FileHandler.copy(srcFile, new File("resources/screenshots/" + result.getName() + "-" + currentTime + ".jpg"));
-        String screenshotBase64 = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BASE64);*/
     }
-
 
 
     @Step("Закрываем браузер")
