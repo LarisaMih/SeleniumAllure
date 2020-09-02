@@ -21,12 +21,18 @@ public class DataBase {
     public static byte[] LinkScreenAllure(String path) throws IOException {
         return Files.readAllBytes(Paths.get(path));
     }
+@Attachment(value = "Прикрепление",type = "application/json")
+    public static String LinkAllure(String path) throws IOException {
+        return path;}
+
     @Step("Screen")//Создание скриншота
     public  static  void Screenshot(String name) throws IOException {
         TakesScreenshot scr = ((TakesScreenshot) driver);
         File file1 = scr.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file1, new File("C:/Users/User/IdeaProjects/Redesing/src/screenshot/"+name+".PNG"));
         DataBase.LinkScreenAllure("C:/Users/User/IdeaProjects/Redesing/src/screenshot/"+name+".PNG");
+        DataBase.LinkScreenAllure("C:/Users/User/IdeaProjects/Redesing/src/screenshot/log.txt");
+        DataBase.LinkAllure("qw");
 
     }
 }
