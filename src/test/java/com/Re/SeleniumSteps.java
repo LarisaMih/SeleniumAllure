@@ -8,6 +8,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sun.jvm.hotspot.StackTrace;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,10 +48,25 @@ public class SeleniumSteps extends DataBase {
     }
 
 
-    @Step("Вход на главную страницу, проверка заголовка")
-    public static void title(String URL) throws IOException, InterruptedException {
+    @Step("Проверка что {num1} + {num2} = {expectedSum}")
+    public static void Mat(float num1, float num2, float expectedSum){
+
+        System.out.println("I see this script");
+        Assert.assertTrue(num1 + num2 == expectedSum,"Сумма слагаемых не соответствует ожидаемому значению"+expectedSum);
+    }
+
+    @Step
+    public static void Allure() throws IOException, InterruptedException {
+        Thread.sleep(10);
+
+        //Запуск батника для аллюр, 2 способа
+        Runtime.getRuntime().exec("cmd /k C:\\Users\\User\\IdeaProjects\\Redesing\\src\\test\\resources/startAllure.bat");
+
+        /*ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/C", "C:\\Users\\User\\IdeaProjects\\Redesing\\src\\test\\resources/startAllure.bat");
+        Process process = processBuilder.start();*/
 
     }
+
 
 
     @Step("Закрываем браузер")

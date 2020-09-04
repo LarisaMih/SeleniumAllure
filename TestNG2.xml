@@ -4,10 +4,10 @@
         <parameter name="test-name" value="Test One"/>
         <groups>
             <run>
-                <include name="householdapi"/>
+                <include name="householdapi2"/>
             </run>
         </groups>
-
+        
         <classes>
             <class name="com.Re.RedesingTest" />
         </classes>

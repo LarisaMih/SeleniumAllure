@@ -20,4 +20,18 @@ public class Start {
         p.search();
         p.finish();
     }
+
+    @Test(priority = 5)
+    public void StartTask() throws Exception {
+
+        Runtime.getRuntime().exec("cmd /k C:\\Users\\User\\IdeaProjects\\Redesing\\src\\test\\resources/task.bat");
+    }
+
+    @Test(priority = 6)
+    public void StartTaskAll() throws Exception {
+
+        Runtime.getRuntime().exec("cmd /k C:\\Users\\User\\IdeaProjects\\Redesing\\src\\test\\resources/taskAll.bat");
+    }
+
+
 }

@@ -61,6 +61,43 @@ allure {
 }
 
 
+task AllTestHouseHoldStage(type: Test) {
+    useTestNG {
+        //  environment('env','Stage')
+        suites 'TestNG.xml'
+        dependsOn 'cleanTest'
+        // logging.captureStandardOutput LogLevel.INFO
+
+    }
+}
+    task AllTestHouseHoldStage2(type: Test) {
+        useTestNG {
+            //  environment('env','Stage')
+            suites 'TestNG2.xml'
+            dependsOn 'cleanTest'
+            // logging.captureStandardOutput LogLevel.INFO
+
+        }
+
+
+}
+
+//-------test-------------
+tasks.register("hel"){
+    dependsOn 'hel2'
+    println 'Hellow'
+
+}
+tasks.register("hel2"){
+    println 'Depend hellow'
+}
+//------------------------
+task te{
+    group 'householdapi'
+    println 'Hellow'
+}
+
+
 task testGroups(type: Test) {
     useTestNG {
         suites 'TestNG.xml'

@@ -1,6 +1,5 @@
 package com.Re;
 
-import groovy.util.logging.Log;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -19,8 +18,8 @@ public class RedesingTest extends SeleniumSteps {
     @Description("Запуск браузера")
     @Feature("Сайт Редизигн")
     @Story("Проверка заголовка")
-    @BeforeClass
-
+    @BeforeClass(groups = {"householdapi", "householdapi2"})
+    // @BeforeClass(groups ={"householdapi2"})
     public void OpenMainPage() throws Exception {
         String name = "Main";
         SeleniumSteps.StartBrouser(EndPoints.redesing, name);
@@ -30,9 +29,12 @@ public class RedesingTest extends SeleniumSteps {
     @Description("Закрываем  браузер")
     @Feature("Сайт Редизигн")
     @Story("Проверка заголовка")
-    @AfterClass
+    @AfterClass(groups = {"householdapi", "householdapi2"})
+    // @AfterClass(groups ={"householdapi2"})
     public void finish() throws Exception {
         SeleniumSteps.ShutDown();
+        SeleniumSteps.Allure();
+
     }
 
     @Owner("Михайлова Лариса")
@@ -75,7 +77,7 @@ public class RedesingTest extends SeleniumSteps {
     @Description("Проверяем при переходе на линию  title и URL")
     @Feature("Сайт Редизигн")
     @Story("Линия")
-    @Test(priority = 3)
+    @Test(priority = 3, groups = {"householdapi2"})
     public void AssertLineTitle() throws Exception {
         SeleniumSteps.ClikLine();
         String titleLine = driver.getTitle();
@@ -89,7 +91,9 @@ public class RedesingTest extends SeleniumSteps {
     @Description("Вводим в поиске мак и находим элементы")
     @Feature("Сайт Редизигн")
     @Story("Поиск")
-    @Test(priority = 3)
+
+    //@Test
+    @Test(priority = 4, groups = {"householdapi"})
     public void search() throws Exception {
         driver.findElement(EndPoints.search).click();
         driver.findElement(By.xpath("//input[@value='']")).sendKeys("мак");
@@ -98,6 +102,16 @@ public class RedesingTest extends SeleniumSteps {
 
         // driver.findElement(EndPoints.event);
         //String ass = "Search";
+    }
+
+    @Test(priority = 5, groups = {"householdapi"})
+    public void Check() throws Exception {
+
+        Mat(44.44f, 44.22f, 88.66f);
 
     }
+
+
+
+
 }
