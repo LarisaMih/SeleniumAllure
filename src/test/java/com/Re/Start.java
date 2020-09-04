@@ -29,7 +29,6 @@ public class Start {
 
     @Test(priority = 6)
     public void StartTaskAll() throws Exception {
-
         Runtime.getRuntime().exec("cmd /k C:\\Users\\User\\IdeaProjects\\Redesing\\src\\test\\resources/taskAll.bat");
     }
 
