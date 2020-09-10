@@ -3,13 +3,13 @@
 
 task AllTestHouseHoldStage(type: Test) {
     useTestNG {
-        //  environment('env','Stage')
+          environment('env','Stage')
         suites 'TestNG.xml'
         dependsOn 'cleanTest'
-        // logging.captureStandardOutput LogLevel.INFO
-
+         logging.captureStandardOutput LogLevel.INFO
     }
     
+    gradlew test AllTestHouseHoldStage
     Далее создаем фаил XML, а в тестах  в скобках пишем название группы, тогда можно запустить таску и выполняться тесты соответсвующие
     
     2) Пример запуска батника
