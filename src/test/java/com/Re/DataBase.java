@@ -27,13 +27,20 @@ public class DataBase {
         return text;
     }
 
+
+    public static void delete(){
+        String path="C:/Users/User/IdeaProjects/Redesing/src/screenshot/";
+        for (File myFile:new File(path).listFiles())
+            if(myFile.isFile())myFile.delete();
+    }
+
     @Step("Screen")//Создание скриншота
     public static void Screenshot(String name) throws IOException {
         TakesScreenshot scr = ((TakesScreenshot) driver);
         File file1 = scr.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file1, new File("C:/Users/User/IdeaProjects/Redesing/src/screenshot/" + name + ".PNG"));
-        DataBase.LinkScreenAllure("C:/Users/User/IdeaProjects/Redesing/src/screenshot/" + name + ".PNG");
-        DataBase.LinkScreenAllure("C:/Users/User/IdeaProjects/Redesing/src/screenshot/log.txt");
+       // DataBase.LinkScreenAllure("C:/Users/User/IdeaProjects/Redesing/src/screenshot/" + name + ".PNG");
+       // DataBase.LinkScreenAllure("C:/Users/User/IdeaProjects/Redesing/src/screenshot/log.txt");
 
 
     }

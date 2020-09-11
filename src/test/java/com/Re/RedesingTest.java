@@ -16,22 +16,39 @@ public class RedesingTest extends SeleniumSteps {
 
     @Owner("Михайлова Лариса")
     @Description("Запуск браузера")
-    @Feature("Сайт Редизигн")
+    @Feature("Тесты по олимпу")
     @Story("Проверка заголовка")
-    @BeforeClass(groups = {"householdapi", "householdapi2"})
-    // @BeforeClass(groups ={"householdapi2"})
-    public void OpenMainPage() throws Exception {
+    @BeforeClass(groups = {"householdapi", "householdapi2", "prod"})
+            // @BeforeClass(groups ={"householdapi2"})
+   /* public void OpenMainPage() throws Exception {
         String name = "Main";
         SeleniumSteps.StartBrouser(EndPoints.redesing, name);
+    }*/
+
+
+
+    public void OpenMainPage() throws Exception {
+       // DataBase.delete(); удаление папки
+        String url = null;
+        String env = System.getenv("env");
+        if (env.equals("Prod")) {
+            url = EndPoints.prod;
+        } else if (env.equals("dev")) {
+            url = EndPoints.dev;
+        }
+        String name = "Main";
+        SeleniumSteps.StartBrouser(url, name);
     }
+
 
     @Owner("Михайлова Лариса")
     @Description("Закрываем  браузер")
-    @Feature("Сайт Редизигн")
+    @Feature("Тесты по олимпу")
     @Story("Проверка заголовка")
-    @AfterClass(groups = {"householdapi", "householdapi2"})
+    @AfterClass(groups = {"householdapi", "householdapi2", "prod"})
     // @AfterClass(groups ={"householdapi2"})
     public void finish() throws Exception {
+        SeleniumSteps.Allure();
         SeleniumSteps.ShutDown();
         SeleniumSteps.Allure();
 
@@ -39,7 +56,7 @@ public class RedesingTest extends SeleniumSteps {
 
     @Owner("Михайлова Лариса")
     @Description("Проверяем Title")
-    @Feature("Сайт Редизигн")
+    @Feature("Тесты по олимпу")
     @Story("Проверка заголовка")
     // @Test(priority = 1, description = "Проверка Титла на главной странице")
 
@@ -64,7 +81,7 @@ public class RedesingTest extends SeleniumSteps {
 
     @Owner("Михайлова Лариса")
     @Description("Проверяем Title")
-    @Feature("Сайт Редизигн")
+    @Feature("Тесты по олимпу")
     @Story("Проверка заголовка")
     @Test(priority = 2)
 
@@ -75,9 +92,9 @@ public class RedesingTest extends SeleniumSteps {
 
     @Owner("Михайлова Лариса")
     @Description("Проверяем при переходе на линию  title и URL")
-    @Feature("Сайт Редизигн")
+    @Feature("Тесты по олимпу")
     @Story("Линия")
-    @Test(priority = 3, groups = {"householdapi2"})
+    @Test(priority = 3, groups = {"householdapi2", "prod"})
     public void AssertLineTitle() throws Exception {
         SeleniumSteps.ClikLine();
         String titleLine = driver.getTitle();
@@ -89,29 +106,29 @@ public class RedesingTest extends SeleniumSteps {
 
     @Owner("Михайлова Лариса")
     @Description("Вводим в поиске мак и находим элементы")
-    @Feature("Сайт Редизигн")
+    @Feature("Тесты по олимпу")
     @Story("Поиск")
 
     //@Test
-    @Test(priority = 4, groups = {"householdapi"})
+    @Test(priority = 4, groups = {"householdapi", "prod"})
     public void search() throws Exception {
         driver.findElement(EndPoints.search).click();
         driver.findElement(By.xpath("//input[@value='']")).sendKeys("мак");
         sleep(1000);
         DataBase.Screenshot("search");
+        DataBase.LinkScreenAllure("C:/Users/User/IdeaProjects/Redesing/src/screenshot/search.PNG");
+        DataBase.LinkScreenAllure("C:/Users/User/IdeaProjects/Redesing/src/screenshot/log.txt");
+        DataBase.LinkAllure("Тестовый текст");
 
-        // driver.findElement(EndPoints.event);
-        //String ass = "Search";
     }
 
-    @Test(priority = 5, groups = {"householdapi"})
+    @Feature("Математика")
+    @Test(priority = 5, groups = {"householdapi", "prod"})
     public void Check() throws Exception {
 
         Mat(44.44f, 44.22f, 88.66f);
 
     }
-
-
 
 
 }

@@ -59,17 +59,23 @@ allure {
     reportDir = file('C:/Users/User/IdeaProjects/Redesing/build/allure-report')
 
 }
-
-
-task AllTestHouseHoldStage(type: Test) {
+task Prod(type: Test) {
     useTestNG {
-        //  environment('env','Stage')
-        suites 'TestNG.xml'
+        environment('env', 'Prod')
+        suites 'TestNGprod.xml'
         dependsOn 'cleanTest'
         // logging.captureStandardOutput LogLevel.INFO
 
     }
-}
+
+    task AllTestHouseHoldStage(type: Test) {
+        useTestNG {
+            environment('env', 'Prod')
+            suites 'TestNG.xml'
+            dependsOn 'cleanTest'
+            // logging.captureStandardOutput LogLevel.INFO
+        }
+    }
     task AllTestHouseHoldStage2(type: Test) {
         useTestNG {
             //  environment('env','Stage')
@@ -80,29 +86,30 @@ task AllTestHouseHoldStage(type: Test) {
         }
 
 
-}
+    }
 
 //-------test-------------
-tasks.register("hel"){
-    dependsOn 'hel2'
-    println 'Hellow'
+    tasks.register("hel") {
+        dependsOn 'hel2'
+        println 'Hellow'
 
-}
-tasks.register("hel2"){
-    println 'Depend hellow'
-}
-//------------------------
-task te{
-    group 'householdapi'
-    println 'Hellow'
-}
-
-
-task testGroups(type: Test) {
-    useTestNG {
-        suites 'TestNG.xml'
-        dependsOn 'cleanTest'
     }
+    tasks.register("hel2") {
+        println 'Depend hellow'
+    }
+//------------------------
+    task te {
+        group 'householdapi'
+        println 'Hellow'
+    }
+
+
+    task testGroups(type: Test) {
+        useTestNG {
+            suites 'TestNG.xml'
+            dependsOn 'cleanTest'
+        }
+    }
+
+
 }
-
-

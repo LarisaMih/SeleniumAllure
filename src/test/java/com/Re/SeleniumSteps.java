@@ -20,12 +20,11 @@ import static org.testng.Assert.fail;
 public class SeleniumSteps extends DataBase {
 
 
-
     @Step("Метод запускает работу Браузера получая в парметрах URL")
     public static void StartBrouser(String URL , String name) throws IOException, InterruptedException {
 
         System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
-       // String name = "Стартовая страницы";
+        // String name = "Стартовая страницы";
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -33,6 +32,7 @@ public class SeleniumSteps extends DataBase {
         sleep(5000);
         DataBase.Screenshot(name);
     }
+
     @Step("Проверка заголовка ожидаемого с фактическим")
     public static void AssertTitle(String titl, String expTitl) throws IOException, InterruptedException {
 
@@ -57,7 +57,7 @@ public class SeleniumSteps extends DataBase {
 
     @Step
     public static void Allure() throws IOException, InterruptedException {
-        Thread.sleep(10);
+        Thread.sleep(90);
 
         //Запуск батника для аллюр, 2 способа
         Runtime.getRuntime().exec("cmd /k C:\\Users\\User\\IdeaProjects\\Redesing\\src\\test\\resources/startAllure.bat");
@@ -66,7 +66,6 @@ public class SeleniumSteps extends DataBase {
         Process process = processBuilder.start();*/
 
     }
-
 
 
     @Step("Закрываем браузер")

@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite  allow-return-values="true" name="tests" >
+    <test name="UI Test Olimp">
+        <parameter name="test-name" value="Test One"/>
+        <groups>
+            <run>
+                <include name="prod"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="com.Re.RedesingTest" />
+        </classes>
+    </test>
+</suite>
